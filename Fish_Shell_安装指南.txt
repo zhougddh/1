@@ -1,0 +1,139 @@
+Fish Shell Windows 安装指南
+==========================
+
+Fish Shell (Friendly Interactive Shell) 是一个智能且用户友好的命令行 shell。
+在 Windows 上有以下几种安装方法：
+
+方法一：使用 MSYS2（推荐）
+-----------------------
+1. 下载 MSYS2 安装程序：
+   - 访问：https://www.msys2.org/
+   - 下载最新版本的 msys2-x86_64-*.exe
+
+2. 运行安装程序：
+   - 双击下载的安装程序
+   - 按照提示完成安装（建议安装到默认路径 C:\msys64）
+
+3. 安装 Fish Shell：
+   - 打开 "MSYS2 MSYS" 终端
+   - 运行以下命令：
+     pacman -Syu
+     pacman -S fish
+
+4. 启动 Fish：
+   - 在 MSYS2 终端中运行：fish
+
+方法二：使用 WSL（Windows Subsystem for Linux）
+----------------------------------------------
+1. 启用 WSL：
+   - 以管理员身份打开 PowerShell
+   - 运行：wsl --install
+   - 重启电脑
+
+2. 安装 Ubuntu：
+   - 打开 Microsoft Store
+   - 搜索并安装 "Ubuntu"
+
+3. 在 WSL 中安装 Fish：
+   - 打开 Ubuntu 终端
+   - 运行：
+     sudo apt update
+     sudo apt install fish
+
+4. 启动 Fish：
+   - 在 Ubuntu 终端中运行：fish
+
+方法三：使用 Cygwin
+------------------
+1. 下载 Cygwin 安装程序：
+   - 访问：https://www.cygwin.com/
+   - 下载 setup-x86_64.exe
+
+2. 运行安装程序：
+   - 双击 setup-x86_64.exe
+   - 在包选择界面搜索 "fish"
+   - 选择 fish 包进行安装
+
+3. 启动 Fish：
+   - 打开 Cygwin 终端
+   - 运行：fish
+
+方法四：从源码编译
+-----------------
+1. 安装依赖：
+   - 需要安装 CMake、C++ 编译器、ncurses 等
+
+2. 下载源码：
+   git clone https://github.com/fish-shell/fish-shell.git
+   cd fish-shell
+
+3. 编译安装：
+   mkdir build
+   cd build
+   cmake ..
+   make
+   make install
+
+快速开始（使用 MSYS2）
+---------------------
+安装完成后，您可以通过以下方式使用 Fish：
+
+1. 创建桌面快捷方式：
+   - 目标：C:\msys64\msys2_shell.cmd -mingw64 -defterm -no-start -shell fish
+   - 工作目录：C:\Users\您的用户名
+
+2. 设置 Fish 为默认 shell（可选）：
+   - 在 MSYS2 中运行：
+     echo /usr/bin/fish | tee -a /etc/shells
+     chsh -s /usr/bin/fish
+
+Fish Shell 基本配置
+------------------
+配置文件位置：~/.config/fish/config.fish
+
+示例配置：
+# 设置别名
+alias ll 'ls -lh'
+alias gs 'git status'
+
+# 设置环境变量
+set -gx PATH $PATH ~/bin
+
+# 设置编辑器
+set -gx EDITOR nvim
+
+常用命令
+--------
+fish           # 启动 Fish Shell
+fish_config    # 打开 Web 配置界面
+fish_update_completions  # 更新自动补全
+
+注意事项
+--------
+1. Fish Shell 语法与 Bash 不完全兼容
+2. Fish 不支持 POSIX shell 标准
+3. 某些脚本可能需要修改才能在 Fish 中运行
+
+更多帮助
+--------
+- 官方网站：https://fishshell.com/
+- 官方文档：https://fishshell.com/docs/current/
+- GitHub：https://github.com/fish-shell/fish-shell
+
+故障排除
+--------
+如果遇到问题：
+1. 确保网络连接正常
+2. 检查防火墙设置
+3. 尝试使用不同的安装方法
+4. 查看官方文档和 GitHub Issues
+
+安装验证
+--------
+安装完成后，运行以下命令验证：
+fish --version
+
+应该显示类似：
+fish, version 3.7.1
+
+祝您使用愉快！

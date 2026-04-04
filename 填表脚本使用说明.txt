@@ -1,0 +1,106 @@
+========================================
+        网页填表自动化脚本使用说明
+========================================
+
+一、功能介绍
+-----------
+本脚本使用 Python + Selenium 实现网页表单自动填写和提交，适用于各种网页表单的自动化操作。
+
+
+二、准备工作
+-----------
+1. 安装 Python 3.x
+   - 下载地址：https://www.python.org/downloads/
+   - 安装时勾选 "Add Python to PATH"
+
+2. 安装依赖包
+   - 打开命令提示符（CMD）
+   - 运行命令：`pip install selenium`
+
+3. 下载 Chrome 浏览器
+   - 确保电脑已安装 Chrome 浏览器
+   - 版本建议：最新版或较新版本
+
+4. 下载 ChromeDriver
+   - 下载地址：https://chromedriver.chromium.org/downloads
+   - 选择与你的 Chrome 浏览器版本匹配的驱动
+   - 将 chromedriver.exe 复制到 Python 安装目录或系统 PATH 中
+
+
+三、配置说明
+-----------
+编辑 `config.json` 文件，根据实际情况修改配置：
+
+1. `url` - 表单网页地址
+   - 例如："https://example.com/form"
+
+2. `fields` - 表单字段
+   - 格式："字段名": "值"
+   - 字段名可以是 input 的 id、name 或 class
+   - 例如：
+     {
+       "username": "your_username",
+       "password": "your_password",
+       "email": "your_email@example.com"
+     }
+
+3. `submit_button` - 提交按钮的 XPath
+   - 默认为："//button[@type='submit']"
+   - 可以根据实际网页调整
+
+4. `wait_time` - 等待时间（秒）
+   - 默认为 10 秒
+
+5. `headless` - 是否无头模式
+   - true：不显示浏览器界面
+   - false：显示浏览器界面
+
+
+四、使用方法
+-----------
+1. 配置 `config.json` 文件
+2. 双击运行 `填表脚本.py`
+3. 脚本会自动打开浏览器，填写表单并提交
+4. 查看命令窗口的输出信息
+
+
+五、常见问题
+-----------
+Q: 启动浏览器失败？
+A: 检查 Chrome 浏览器是否安装，ChromeDriver 是否正确配置
+
+Q: 找不到字段？
+A: 检查字段名是否正确，或修改配置文件中的字段名
+
+Q: 提交按钮找不到？
+A: 检查 `submit_button` 的 XPath 是否正确
+
+Q: 脚本运行出错？
+A: 查看命令窗口的错误信息，根据提示进行调整
+
+
+六、注意事项
+-----------
+1. 请遵守网站的使用条款
+2. 不要用于恶意操作
+3. 复杂的验证码可能需要手动处理
+4. 网站结构变化时可能需要更新配置
+
+
+七、示例
+-----------
+以登录表单为例：
+
+config.json:
+{
+  "url": "https://example.com/login",
+  "fields": {
+    "username": "testuser",
+    "password": "password123"
+  },
+  "submit_button": "//button[@type='submit']"
+}
+
+运行脚本后，会自动填写用户名和密码并提交。
+
+========================================

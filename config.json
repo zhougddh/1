@@ -1,0 +1,12 @@
+{
+  "url": "https://example.com/form",
+  "fields": {
+    "name": "张三",
+    "phone": "13800138000",
+    "email": "zhangsan@example.com",
+    "address": "北京市朝阳区"
+  },
+  "submit_button": "//button[@type='submit']",
+  "wait_time": 10,
+  "headless": false
+}
